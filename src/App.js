@@ -2,7 +2,9 @@ import Search from './Components/Search';
 
 function App() {
   return (
-    <Search />
+    <div className="align-middle">
+      <Search />
+    </div>
   );
 }
 
