@@ -31,7 +31,7 @@ const Search = () => {
         <div className="p-5 flex justify-center items-center w-fit">
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="px-5 flex flex-row justify-between items-center bg-gray-100 w-full border rounded-full"
+                className="px-10 flex flex-col justify-between items-center bg-gray-100 w-full border rounded-full md:flex-row md:items-center"
             >
                 <div
                     className={getFieldClass("source")}
@@ -81,9 +81,9 @@ const Search = () => {
                         <span className="text-red-600 text-sm">Required (only numbers)</span>
                     )}
                 </div>
-                <div className="flex justify-start items-center py-2 px-4 mx-4 bg-rose-600 hover:bg-rose-700 rounded-full text-white cursor-pointer w-40">
+                <div className="flex justify-center items-center py-2 px-4 mx-4 bg-rose-600 hover:bg-rose-700 rounded-full text-white cursor-pointer w-full md:w-auto">
                     <IoSearch />
-                    <button type="submit" className="pl-4">Search</button>
+                    <button type="submit" className="pl-4 pr-14">Search</button>
                 </div>
             </form>
         </div>
