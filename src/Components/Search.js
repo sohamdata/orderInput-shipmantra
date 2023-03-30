@@ -1,10 +1,18 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const Search = () => {
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const [clickedField, setClickedField] = useState("");
+
+    const handleFieldClick = (fieldName) => {
+        setClickedField(fieldName);
+        console.log("clickedField: ", clickedField);
+    };
 
     const onSubmit = (data) => {
         console.log(data);
+        reset();
     };
 
     return (
@@ -13,7 +21,10 @@ const Search = () => {
                 onSubmit={handleSubmit(onSubmit)}
                 className="px-5 flex flex-row justify-between items-center bg-gray-100 w-full border rounded-full"
             >
-                <div>
+                <div
+                    onClick={() => handleFieldClick("source")}
+                    onFocus={() => handleFieldClick("source")}
+                >
                     <label htmlFor="source">Source</label>
                     <input
                         {...register("source", { required: true })}
@@ -25,7 +36,10 @@ const Search = () => {
                         <span className="text-red-600 text-sm">Required</span>
                     )}
                 </div>
-                <div>
+                <div
+                    onClick={() => handleFieldClick("destination")}
+                    onFocus={() => handleFieldClick("destination")}
+                >
                     <label htmlFor="destination">Destination</label>
                     <input
                         {...register("destination", { required: true })}
@@ -37,7 +51,10 @@ const Search = () => {
                         <span className="text-red-600 text-sm">Required</span>
                     )}
                 </div>
-                <div>
+                <div
+                    onClick={() => handleFieldClick("weight")}
+                    onFocus={() => handleFieldClick("weight")}
+                >
                     <label htmlFor="Weight">Weight</label>
                     <input
                         {...register("weight", { required: true, pattern: /[0-9]/ })}
