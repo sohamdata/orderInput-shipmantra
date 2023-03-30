@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { IoSearch } from "react-icons/io5";
 
 const Search = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -16,7 +17,7 @@ const Search = () => {
     };
 
     const getFieldClass = (fieldName) => {
-        let baseClass = "flex flex-col rounded-full px-5 py-3 cursor-pointer transition-all duration-500";
+        let baseClass = "flex flex-col rounded-full px-5 py-3 mx-1 cursor-pointer transition-all duration-500";
         if (clickedField === fieldName) {
             baseClass += " scale-y-105 bg-white shadow-2xl"
         }
@@ -77,15 +78,12 @@ const Search = () => {
                         placeholder="Search weight"
                     />
                     {errors.weight && (
-                        <span className="text-red-600 text-sm">
-                            Required
-                        </span>
+                        <span className="text-red-600 text-sm">Required (only numbers)</span>
                     )}
                 </div>
-                <div className="py-2 px-4 bg-rose-600 hover:bg-rose-700 rounded-full text-white cursor-pointer w-24">
-                    <button type="submit">
-                        Search
-                    </button>
+                <div className="flex justify-start items-center py-2 px-4 mx-4 bg-rose-600 hover:bg-rose-700 rounded-full text-white cursor-pointer w-40">
+                    <IoSearch />
+                    <button type="submit" className="pl-4">Search</button>
                 </div>
             </form>
         </div>
