@@ -7,7 +7,7 @@ const Search = () => {
 
     const handleFieldClick = (fieldName) => {
         setClickedField(fieldName);
-        console.log("clickedField: ", clickedField);
+        // console.log("clickedField: ", clickedField);
     };
 
     const onSubmit = (data) => {
@@ -15,13 +15,25 @@ const Search = () => {
         reset();
     };
 
+    const getFieldClass = (fieldName) => {
+        let baseClass = "flex flex-col rounded-full px-5 py-3 cursor-pointer transition-all duration-500";
+        if (clickedField === fieldName) {
+            baseClass += " scale-y-105 bg-white shadow-2xl"
+        }
+        else {
+            baseClass += " bg-gray-100";
+        }
+        return baseClass;
+    };
+
     return (
-        <div className="p-52 flex justify-center items-center w-fit">
+        <div className="p-5 flex justify-center items-center w-fit">
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="px-5 flex flex-row justify-between items-center bg-gray-100 w-full border rounded-full"
             >
                 <div
+                    className={getFieldClass("source")}
                     onClick={() => handleFieldClick("source")}
                     onFocus={() => handleFieldClick("source")}
                 >
@@ -37,6 +49,7 @@ const Search = () => {
                     )}
                 </div>
                 <div
+                    className={getFieldClass("destination")}
                     onClick={() => handleFieldClick("destination")}
                     onFocus={() => handleFieldClick("destination")}
                 >
@@ -52,6 +65,7 @@ const Search = () => {
                     )}
                 </div>
                 <div
+                    className={getFieldClass("weight")}
                     onClick={() => handleFieldClick("weight")}
                     onFocus={() => handleFieldClick("weight")}
                 >
