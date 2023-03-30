@@ -1,5 +1,5 @@
 # P3 - FRONTEND DESIGN
-- Live: 
+- Live: https://shipmantra-orderinput.netlify.app/
 
 ## Instructions
 1. clone this repo
