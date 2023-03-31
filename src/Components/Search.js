@@ -17,7 +17,7 @@ const Search = () => {
     };
 
     const getFieldClass = (fieldName) => {
-        let baseClass = "flex flex-col rounded-full px-5 py-3 mx-1 cursor-pointer transition-all duration-500";
+        let baseClass = "flex flex-col rounded-full px-7 py-3 mx-1 cursor-pointer transition-all duration-500";
         if (clickedField === fieldName) {
             baseClass += " scale-y-105 bg-white shadow-2xl"
         }
@@ -38,11 +38,11 @@ const Search = () => {
                     onClick={() => handleFieldClick("source")}
                     onFocus={() => handleFieldClick("source")}
                 >
-                    <label htmlFor="source">Source</label>
+                    <label htmlFor="source" className="font-semibold">Source</label>
                     <input
                         {...register("source", { required: true })}
                         id="source"
-                        className="px-2 bg-transparent text-sm outline-none rounded-full py-2 text-black"
+                        className="bg-transparent text-sm outline-none rounded-full py-2 text-black"
                         placeholder="Search source"
                     />
                     {errors.source && (
@@ -54,11 +54,11 @@ const Search = () => {
                     onClick={() => handleFieldClick("destination")}
                     onFocus={() => handleFieldClick("destination")}
                 >
-                    <label htmlFor="destination">Destination</label>
+                    <label htmlFor="destination" className="font-semibold">Destination</label>
                     <input
                         {...register("destination", { required: true })}
                         id="destination"
-                        className="px-2 bg-transparent text-sm outline-none rounded-full py-2 text-black"
+                        className="bg-transparent text-sm outline-none rounded-full py-2 text-black"
                         placeholder="Search destinations"
                     />
                     {errors.destination && (
@@ -70,18 +70,18 @@ const Search = () => {
                     onClick={() => handleFieldClick("weight")}
                     onFocus={() => handleFieldClick("weight")}
                 >
-                    <label htmlFor="Weight">Weight</label>
+                    <label htmlFor="Weight" className="font-semibold">Weight</label>
                     <input
                         {...register("weight", { required: true, pattern: /[0-9]/ })}
                         id="Weight"
-                        className="px-2 bg-transparent text-sm outline-none rounded-full py-2 text-black"
+                        className="bg-transparent text-sm outline-none rounded-full py-2 text-black"
                         placeholder="Search weight"
                     />
                     {errors.weight && (
                         <span className="text-red-600 text-sm">Required (only numbers)</span>
                     )}
                 </div>
-                <div className="flex justify-center items-center py-2 px-4 mx-4 bg-rose-600 hover:bg-rose-700 rounded-full text-white cursor-pointer w-full md:w-auto">
+                <div className="flex justify-center items-center py-4 px-4 mx-4 bg-rose-600 hover:bg-rose-700 rounded-full text-white cursor-pointer w-full md:w-auto">
                     <IoSearch />
                     <button type="submit" className="pl-4 pr-14">Search</button>
                 </div>
