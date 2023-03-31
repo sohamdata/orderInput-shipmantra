@@ -17,9 +17,9 @@ const Search = () => {
     };
 
     const getFieldClass = (fieldName) => {
-        let baseClass = "flex flex-col rounded-full px-7 py-3 mx-1 cursor-pointer transition-all duration-500";
+        let baseClass = "flex flex-col rounded-3xl lg:rounded-full px-7 py-3 mx-1 cursor-pointer transition-all duration-500";
         if (clickedField === fieldName) {
-            baseClass += " scale-y-105 bg-white shadow-2xl"
+            baseClass += " scale-x-105 lg:scale-y-105 bg-white shadow-2xl"
         }
         else {
             baseClass += " bg-gray-100";
@@ -31,7 +31,7 @@ const Search = () => {
         <div className="p-5 flex justify-center items-center w-fit">
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="px-10 flex flex-col justify-between items-center bg-gray-100 w-full border rounded-full md:flex-row md:items-center"
+                className="px-10 flex flex-col justify-between items-center bg-gray-100 w-full border rounded-3xl lg:rounded-full md:flex-row md:items-center"
             >
                 <div
                     className={getFieldClass("source")}
@@ -81,7 +81,7 @@ const Search = () => {
                         <span className="text-red-600 text-sm">Required (only numbers)</span>
                     )}
                 </div>
-                <div className="flex justify-center items-center py-4 px-4 mx-4 bg-rose-600 hover:bg-rose-700 rounded-full text-white cursor-pointer w-full md:w-auto">
+                <div className="flex justify-center items-center py-4 px-4 m-4 bg-rose-600 hover:bg-rose-700 rounded-full shadow-lg text-white cursor-pointer w-full md:w-auto">
                     <IoSearch />
                     <button type="submit" className="pl-4 pr-14">Search</button>
                 </div>
